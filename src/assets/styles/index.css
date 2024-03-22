@@ -20,9 +20,7 @@ body {
 }
 
 .opacity-layer{
-  width: 100%;
   background: linear-gradient(rgba(0,0,0,0), #04152d 50%);
-  height: 250px;
   position: absolute;
   left: 0;
   bottom: 0;

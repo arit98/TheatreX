@@ -10,6 +10,7 @@ import SearchResult from "./Pages/SearchResult";
 import ExplorePage from "./Pages/ExplorePage";
 import ErrorPage from "./Pages/ErrorPage";
 import Footer from "./Components/Footer";
+import { AnimatePresence } from "framer-motion";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -32,8 +33,9 @@ const App = () => {
     fetchApi();
   }, []);
   return (
+    <AnimatePresence mode="wait">
     <BrowserRouter>
-    {/* <NavBar /> */}
+    <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/:mediaType/:id" element={<DetailsPage />} />
@@ -43,6 +45,7 @@ const App = () => {
       </Routes>
       {/* <Footer /> */}
     </BrowserRouter>
+    </AnimatePresence>
   );
 };
 

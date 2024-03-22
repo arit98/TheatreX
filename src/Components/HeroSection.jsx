@@ -15,7 +15,7 @@ const HeroSection = () => {
   const { data, loading } = useFetch("/movie/upcoming");
 
   const searchQueryHandler = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     if (e.key === "Enter" && query.length > 0) {
       navigate(`/search/${query}`);
     }
@@ -27,18 +27,17 @@ const HeroSection = () => {
       data?.results[Math.floor(Math.random() * 20)]?.backdrop_path;
 
     setBackground(bg);
-    console.log(bg);
   }, [data]);
 
   return (
-    <div className="heroBanner w-full h-[450px] md:h-[700px] flex items-center relative">
+    <div className="heroBanner w-full h-[450px] md:h-[700px] flex items-center relative select-none">
       {!loading && (
         <div className="backdrop-img w-full h-full absolute top-0 left-0 opacity-50 overflow-hidden">
           <Img className="object-cover w-full h-full" src={background} alt="" />
         </div>
       )}
 
-      <div className="opacity-layer"></div>
+      <div className="opacity-layer w-full h-[550px] sm:h-[250px] md:h-[250px] lg:h-[250px]"></div>
 
       <div className="content-wrapper w-full max-w-[1200px] m-auto px-20 z-50">
         <div className="wrapper">
@@ -49,15 +48,15 @@ const HeroSection = () => {
             <span className="subTitle text-lg font-medium mb-10 md:text-2xl">
               Millions of movies, TV shows and people to discover, Explore now.
             </span>
-            <div className="searchInput flex items-center w-full">
+            <div className="searchInput flex items-center md:w-full">
               <input
                 className="flex-1 h-[50px] bg-white text-gray-700 outline-none rounded-l-3xl pl-4 text-sm md:w-auto md:ml-auto md:text-xl md:pl-8"
                 type="text"
                 placeholder="Search for a movie or TV show"
                 onKeyUp={searchQueryHandler}
-                onChange={(e) => e.target.value}
+                onChange={(e) => setQuery(e.target.value)}
               />
-              <button className="w-[100px] h-[50px] bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 rounded-r-3xl">Search</button>
+              <button onClick={searchQueryHandler} className="w-[100px] h-[50px] bg-gradient-to-r from-pink-700 to-violet-800 rounded-r-3xl">Search</button>
             </div>
           </div>
         </div>
