@@ -43,7 +43,7 @@ const App = () => {
         <Route path="/explore/:mediaType" element={<ExplorePage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </BrowserRouter>
     </AnimatePresence>
   );
