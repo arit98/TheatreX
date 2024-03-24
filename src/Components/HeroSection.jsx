@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useFetch from "../hooks/useFetch";
 import { useStateHomeValue } from "../Components/useStateValue";
+import useFetch from "../hooks/useFetch";
 import Img from "./LazyLoadImg/Img";
 
 const HeroSection = () => {
@@ -42,10 +42,10 @@ const HeroSection = () => {
       <div className="content-wrapper w-full max-w-[1200px] m-auto px-20 z-50">
         <div className="wrapper">
           <div className="heroBannerContent flex flex-col items-center text-white text-center max-w-[800px] m-auto">
-            <span className="title text-[50px] font-bold mb-3 md:0 md:text-[90px]">
-              Welcome.
+            <span className="title text-[50px] font-bold mb-3 md:0 md:text-[90px] font-serif">
+              TheatreX
             </span>
-            <span className="subTitle text-lg font-medium mb-10 md:text-2xl">
+            <span className="subTitle text-lg font-medium mb-10 md:text-2xl font-serif">
               Millions of movies, TV shows and people to discover, Explore now.
             </span>
             <div className="searchInput flex items-center md:w-full">
@@ -56,7 +56,7 @@ const HeroSection = () => {
                 onKeyUp={searchQueryHandler}
                 onChange={(e) => setQuery(e.target.value)}
               />
-              <button onClick={searchQueryHandler} className="w-[100px] h-[50px] bg-gradient-to-r from-pink-700 to-violet-800 rounded-r-3xl">Search</button>
+              <button onClick={searchQueryHandler} className="w-[100px] h-[50px] bg-gradient-to-r from-[#76ABAE] to-[#78A083] rounded-r-3xl">Search</button>
             </div>
           </div>
         </div>

@@ -14,7 +14,7 @@ const NavBar = () => {
   const [query, setQuery] = useState("");
 
   const navigate = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
 
   const searchQueryHandler = (e) => {
     if (e.key === "Enter" && query.length > 0) {
@@ -58,26 +58,36 @@ const NavBar = () => {
 
   return (
     <div
-      className={`fixed backdrop-blur-[1px] h-12 w-full z-[101] top-0 select-none ${
+      className={`fixed backdrop-blur-[1px] w-full h-12 z-[101] top-0 select-none ${
         show === "show"
-          ? "bg-[#020c1b]"
+          ? "bg-[#222831]"
           : show == "hide"
           ? "translate-y-[-60px]"
           : "rgba(0, 0, 0, 0.25)"
       }`}
     >
-      <div className="md:flex pb-2 hidden items-center justify-between px-32">
-        <img draggable="false" className="h-8 mt-2" src={Logo} alt="" />
-        <ul className="flex items-center justify-center gap-8 text-zinc-100 font-medium">
-          <li className="cursor-pointer hover:text-pink-600">Movies</li>
-          <li className="cursor-pointer hover:text-pink-600">TV Shows</li>
-          <li
-            className="cursor-pointer hover:text-pink-600"
-            onClick={toggleSearch}
-          >
-            <FaSearch />
-          </li>
-        </ul>
+      <div className="wrapper w-full max-w-[1200px] m-auto pl-[20px]">
+        <div className="md:flex pb-2 hidden items-center justify-between">
+          <img
+            draggable="false"
+            onClick={() => {
+              navigate("/");
+            }}
+            className="h-8 mt-2 cursor-pointer"
+            src={Logo}
+            alt=""
+          />
+          <ul className="flex items-center justify-center gap-8 text-zinc-100 font-medium">
+            <li className="cursor-pointer hover:text-pink-600">Movies</li>
+            <li className="cursor-pointer hover:text-pink-600">TV Shows</li>
+            <li
+              className="cursor-pointer hover:text-pink-600"
+              onClick={toggleSearch}
+            >
+              <FaSearch />
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div

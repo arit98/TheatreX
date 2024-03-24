@@ -3,8 +3,7 @@ import { FaFacebookF, FaRedditAlien, FaGithub, FaLinkedinIn } from "react-icons/
 
 const Footer = () => {
   return (
-    <div className="flex justify-center bg-[#061120]">
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center bg-[#222831]">
         <ul className="flex items-center gap-4 text-white py-8">
           <li>Terms Of Use</li>
           <li>Privacy-Policy</li>
@@ -27,15 +26,14 @@ const Footer = () => {
         </p>
 
         <ul className="flex items-center justify-center gap-6 pt-8 pb-12">
-            <li className="h-16 w-16 rounded-full bg-[#04152d] flex items-center justify-center text-3xl text-white"><FaFacebookF /></li>
-            <li className="h-16 w-16 rounded-full bg-[#04152d] flex items-center justify-center text-3xl text-white"><FaRedditAlien /></li>
-            <li className="h-16 w-16 rounded-full bg-[#04152d] flex items-center justify-center text-3xl text-white"><FaGithub /></li>
-            <li className="h-16 w-16 rounded-full bg-[#04152d] flex items-center justify-center text-3xl text-white">
+            <li className="h-16 w-16 rounded-full bg-[#1c2129] flex items-center justify-center text-3xl text-white"><FaFacebookF /></li>
+            <li className="h-16 w-16 rounded-full bg-[#1c2129] flex items-center justify-center text-3xl text-white"><FaRedditAlien /></li>
+            <li className="h-16 w-16 rounded-full bg-[#1c2129] flex items-center justify-center text-3xl text-white"><FaGithub /></li>
+            <li className="h-16 w-16 rounded-full bg-[#1c2129] flex items-center justify-center text-3xl text-white">
                 <FaLinkedinIn />
             </li>
         </ul>
       </div>
-    </div>
   );
 };
 
