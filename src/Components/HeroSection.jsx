@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useStateHomeValue } from "../Components/useStateValue";
 import useFetch from "../hooks/useFetch";
 import Img from "./LazyLoadImg/Img";
+import DefaultPoster from "../assets/images/Banner.jpg"
 
 const HeroSection = () => {
   const [background, setBackground] = useState("");
@@ -23,10 +24,10 @@ const HeroSection = () => {
 
   useEffect(() => {
     const bg =
-      url?.backdrop +
-      data?.results[Math.floor(Math.random() * 20)]?.backdrop_path;
+      url.backdrop +
+      data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
 
-    setBackground(bg);
+      setBackground(bg)
   }, [data]);
 
   return (

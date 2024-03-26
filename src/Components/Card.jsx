@@ -8,7 +8,7 @@ import SkeletonCard from "./SkeletonCard";
 import Geners from "./Geners";
 import { useNavigate } from "react-router-dom";
 
-const Card = ({ data, loading }) => {
+const Card = ({ data, loading, endPoint }) => {
   const { url } = useStateHomeValue();
 
   const navigate = useNavigate()
@@ -57,7 +57,7 @@ const Card = ({ data, loading }) => {
               <div
                 key={item.id}
                 className={`flex items-center flex-col gap-2 rounded-lg`}
-                onClick={()=>navigate(`/${item.media_type}/${item.id}`)}
+                onClick={()=>navigate(`/${item.media_type || endPoint}/${item.id}`)}
               >
                 <div className="flex items-center justify-center">
                   <img
@@ -83,7 +83,9 @@ const Card = ({ data, loading }) => {
                   >
                     {(item?.vote_average).toFixed(1)}
                   </div>
+                  <div className="absolute md:flex hidden flex-wrap gap-1 bottom-16 w-[210px] m-auto justify-center">
                   <Geners data={item.genre_ids} />
+                  </div>
                 </div>
 
                 <div className="pl-1 flex items-center justify-cnetr flex-col text-white">

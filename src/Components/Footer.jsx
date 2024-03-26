@@ -3,7 +3,7 @@ import { FaFacebookF, FaRedditAlien, FaGithub, FaLinkedinIn } from "react-icons/
 
 const Footer = () => {
   return (
-      <div className="flex flex-col items-center bg-[#222831]">
+      <div className="flex flex-col items-center bg-[#222831] z-1">
         <ul className="flex items-center gap-4 text-white py-8">
           <li>Terms Of Use</li>
           <li>Privacy-Policy</li>

@@ -1,13 +1,17 @@
 import React from 'react'
 import HeroSection from '../Components/HeroSection'
-import Carousel from '../Components/Carousel'
+import TrendingSection from '../Components/TrendingSection'
+import PopularSection from '../Components/PopularSection'
+import TopRated from '../Components/TopRated'
 
 const HomePage = () => {
   return (
     <div>
       <HeroSection />
-      <Carousel title="Trending" />
-      <div className='h-[1000px]'></div>
+      <TrendingSection />
+      <PopularSection />
+      <TopRated />
+      {/* <div className='h-[1000px]'></div> */}
     </div>
   )
 }
