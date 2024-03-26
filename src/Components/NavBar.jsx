@@ -95,7 +95,9 @@ const NavBar = () => {
           isMenu === true ? "bg-[#061120]" : "bg-transparent"
         } w-full h-12 pb-1 md:hidden flex items-center justify-between px-4`}
       >
-        <img draggable="false" className="h-6 mt-2" src={Logo} alt="" />
+        <img draggable="false" onClick={() => {
+              navigate("/");
+            }} className="h-6 mt-2" src={Logo} alt="" />
         <ul className="flex items-center justify-center gap-5 text-zinc-100">
           <li
             className="cursor-pointer hover:text-pink-600"

@@ -31,7 +31,7 @@ const Card = ({ data, loading, endPoint }) => {
           slidesToShow: 4,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
+          dots: false,
         },
       },
       {
@@ -46,7 +46,7 @@ const Card = ({ data, loading, endPoint }) => {
   };
 
   return (
-    <div className="w-full max-w-[1200px] m-auto mt-12">
+    <div className="w-full max-w-[1200px] m-auto mt-12 cursor-pointer">
       {!loading ? (
         <Slider {...settings}>
           {data?.map((item) => {

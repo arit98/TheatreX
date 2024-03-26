@@ -43,28 +43,28 @@ const DetailsBanner = ({ video, crew }) => {
               </div>
               <div className="opacity-layer w-full h-[550px] sm:h-[250px] md:h-[250px] lg:h-[250px]"></div>
               {/* inside */}
-              <div className="w-full flex items-center justify-between m-auto max-w-[1200px] gap-12">
+              <div className="w-full flex items-center justify-between md:flex-row flex-col m-auto max-w-[1200px] gap-12">
                 <div className="left w-full flex items-center justify-center">
                   {data.poster_path ? (
-                    <img className="w-[320px] h-auto z-50" src={url.backdrop + data.poster_path} />
+                    <img className="md:w-[320px] w-48 h-auto z-50 rounded-xl mt-24 md:mt-0" src={url.backdrop + data.poster_path} />
                   ) : (
                     <Img src={NoPoster} />
                   )}
                 </div>
-                <div className="z-20 flex items-start justify-center my-20 flex-col">
-                  <div className="title text-3xl text-white font-semibold">
+                <div className="z-20 flex items-start justify-center md:my-20 flex-col md:p-0 p-4">
+                  <div className="title text-xl md:text-3xl text-white font-semibold">
                     {`${data.name || data.title} (${new Date(data?.release_date)
                       .toDateString("en-US", options)
                       .slice(10)
                       .trim()})`}
                   </div>
-                  <div className="subtitle text-xl mt-2 text-gray-500">
+                  <div className="subtitle md:text-xl text-lg mt-2 text-gray-500">
                     {data.tagline}
                   </div>
                   <div className="flex items-center justify-start gap-2 mt-4">
                     <Geners data={_genres} />
                   </div>
-                  <div className="flex items-center justify-center gap-4 mt-6 mb-4">
+                  <div className="flex items-center justify-center gap-4 md:mt-6 mt-2 mb-4">
                     <div
                       className={`radial-progress md:text-2xl text-md font-bold md:h-20 h-12 w-12 md:w-20 bg-gray-200 ${
                         data?.vote_average < 5
@@ -90,7 +90,7 @@ const DetailsBanner = ({ video, crew }) => {
                       }}
                     >
                       <div className="flex items-center gap-2">
-                        <IoPlayCircleOutline className="text-[5rem] cursor-pointer hover:text-red-400" />
+                        <IoPlayCircleOutline className="md:text-[5rem] text-6xl cursor-pointer hover:text-red-400" />
                         <span className="text-xl font-semibold">
                           Watch Trailer
                         </span>
@@ -164,7 +164,7 @@ const DetailsBanner = ({ video, crew }) => {
                   {data?.created_by?.length > 0 && (
                     <div className="info">
                       <span className="text bold">Creator: </span>
-                      <span className="text">
+                      <span className="text-red-400">
                         {data?.created_by?.map((d, i) => (
                           <span key={i}>
                             {d.name}

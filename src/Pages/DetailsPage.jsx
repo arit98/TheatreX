@@ -12,7 +12,7 @@ const DetailsPage = () => {
   return (
     <div>
        <DetailsBanner video={data?.results?.[0]} crew={credits?.crew} />
-       <div className='h-44'></div>
+       <div className='h-[1000px]'></div>
     </div>
   )
 }
