@@ -4,7 +4,7 @@ import { useStateHomeValue } from "./useStateValue";
 import NoPoster from "../assets/images/no-poster.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import SkeletonCard from "./SkeletonCard";
+import SkeletonCard from "./Skeleton/SkeletonCard";
 import Geners from "./Geners";
 import { useNavigate } from "react-router-dom";
 

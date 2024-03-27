@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 import NoPoster from "../assets/images/no-poster.png";
 import { IoPlayCircleOutline  } from "react-icons/io5";
 import Geners from "./Geners";
+import SkeletonDetails from "./Skeleton/SkeletonDetails";
+import TrailerModal from "./TrailerModal";
 
 const DetailsBanner = ({ video, crew }) => {
   const { mediaType, id } = useParams();
@@ -32,7 +34,7 @@ const DetailsBanner = ({ video, crew }) => {
     <>
       {!loading ? (
         <>
-          {!!data && (
+          {data && (
             <div className="heroBanner w-full h-[450px] md:h-[700px] flex items-center relative select-none">
               <div className="backdrop-img w-full h-full absolute top-0 left-0 opacity-50 overflow-hidden">
                 <Img
@@ -180,8 +182,14 @@ const DetailsBanner = ({ video, crew }) => {
           )}
         </>
       ) : (
-        <p>Loading</p>
+        <SkeletonDetails />
       )}
+      <TrailerModal
+                show={show}
+                setShow={setShow}
+                videoId={videoId}
+                setVideoId={setVideoId}
+            />
     </>
   );
 };
