@@ -16,7 +16,7 @@ const SearchCard = ({ data, fromSearch, mediaType }) => {
 
   return (
     <div
-      className={`flex items-center flex-col gap-2 rounded-lg`}
+      className={`flex items-center flex-col gap-2 rounded-lg pb-8`}
       onClick={() => navigate(`/${data?.media_type || mediaType}/${data?.id}`)}
     >
       <div className="flex items-center justify-center">

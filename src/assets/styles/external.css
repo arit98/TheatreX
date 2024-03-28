@@ -36,6 +36,11 @@
   justify-content: center;
 }
 
+.heroBg{
+  width: 100%;
+  object-fit: cover;
+}
+
 @media (max-width: 768px){
   .profileImg{
     width: 50px;

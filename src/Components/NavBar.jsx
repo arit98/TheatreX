@@ -32,6 +32,15 @@ const NavBar = () => {
     setIsSearch(false);
   };
 
+  const navigationHandler = (type) => {
+    if (type === "movie") {
+      navigate("/explore/movie");
+    } else {
+      navigate("/explore/tv");
+    }
+    setIsMenu(false);
+  };
+
   const controlNavbar = () => {
     if (window.scrollY > 200) {
       if (window.scrollY > lastScrollY && isMenu === null) {
@@ -78,8 +87,18 @@ const NavBar = () => {
             alt=""
           />
           <ul className="flex items-center justify-center gap-8 text-zinc-100 font-medium">
-            <li className="cursor-pointer hover:text-pink-600">Movies</li>
-            <li className="cursor-pointer hover:text-pink-600">TV Shows</li>
+            <li
+              className="cursor-pointer hover:text-pink-600"
+              onClick={() => navigationHandler("movie")}
+            >
+              Movies
+            </li>
+            <li
+              className="cursor-pointer hover:text-pink-600"
+              onClick={() => navigationHandler("tv")}
+            >
+              TV Shows
+            </li>
             <li
               className="cursor-pointer hover:text-pink-600"
               onClick={toggleSearch}
@@ -95,9 +114,15 @@ const NavBar = () => {
           isMenu === true ? "bg-[#061120]" : "bg-transparent"
         } w-full h-12 pb-1 md:hidden flex items-center justify-between px-4`}
       >
-        <img draggable="false" onClick={() => {
-              navigate("/");
-            }} className="h-6 mt-2" src={Logo} alt="" />
+        <img
+          draggable="false"
+          onClick={() => {
+            navigate("/");
+          }}
+          className="h-6 mt-2"
+          src={Logo}
+          alt=""
+        />
         <ul className="flex items-center justify-center gap-5 text-zinc-100">
           <li
             className="cursor-pointer hover:text-pink-600"
@@ -147,8 +172,16 @@ const NavBar = () => {
             exit={{ opacity: 0, x: 0, y: 200 }}
             className="bg-[#061120] h-auto py-4 md:hidden flex flex-col gap-4 border-t border-gray-700 text-white font-medium"
           >
-            <li className="cursor-pointer hover:text-pink-600 pl-4">Movies</li>
-            <li className="cursor-pointer hover:text-pink-600 pl-4">
+            <li
+              className="cursor-pointer hover:text-pink-600 pl-4"
+              onClick={() => navigationHandler("movie")}
+            >
+              Movies
+            </li>
+            <li
+              className="cursor-pointer hover:text-pink-600 pl-4"
+              onClick={() => navigationHandler("tv")}
+            >
               TV Shows
             </li>
           </motion.ul>

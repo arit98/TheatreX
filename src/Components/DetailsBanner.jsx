@@ -38,7 +38,7 @@ const DetailsBanner = ({ video, crew }) => {
             <div className="heroBanner w-full h-[450px] md:h-[700px] flex items-center relative select-none">
               <div className="backdrop-img w-full h-full absolute top-0 left-0 opacity-50 overflow-hidden">
                 <Img
-                  className="object-cover w-full h-full"
+                  className="heroBg"
                   src={url?.backdrop + data?.backdrop_path}
                   alt=""
                 />

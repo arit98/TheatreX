@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useStateHomeValue } from "../Components/useStateValue";
 import useFetch from "../hooks/useFetch";
 import Img from "./LazyLoadImg/Img";
-import DefaultPoster from "../assets/images/Banner.jpg"
+import BG from "../assets/images/bg1.jpg"
+
+import "../assets/styles/external.css"
 
 const HeroSection = () => {
   const [background, setBackground] = useState("");
@@ -13,6 +15,7 @@ const HeroSection = () => {
 
   const navigate = useNavigate();
 
+  // fixing bug
   const { data, loading } = useFetch("/movie/upcoming");
 
   const searchQueryHandler = (e) => {
@@ -27,14 +30,22 @@ const HeroSection = () => {
       url.backdrop +
       data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
 
-      setBackground(bg)
-  }, [data]);
+      const bgDummy = 'bg'+Math.ceil(Math.random()*8)
+
+      const newDummy = require(`../assets/images/${bgDummy}.jpg`)
+
+      if(data?.results?.length > 0){
+        setBackground(bg)
+      } else{
+        setBackground(newDummy);
+      }
+  }, [data, url.backdrop]);
 
   return (
     <div className="heroBanner w-full h-[450px] md:h-[700px] flex items-center relative select-none">
       {!loading && (
         <div className="backdrop-img w-full h-full absolute top-0 left-0 opacity-50 overflow-hidden">
-          <Img className="object-cover w-full h-full" src={background} alt="" />
+          <Img className="heroBg" src={background} alt="" />
         </div>
       )}
 
