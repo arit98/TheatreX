@@ -67,7 +67,7 @@ const NavBar = () => {
 
   return (
     <div
-      className={`fixed backdrop-blur-[1px] w-full h-12 z-[101] top-0 select-none ${
+      className={`fixed backdrop-blur-[1px] w-full h-12 z-[150] top-0 select-none ${
         show === "show"
           ? "bg-[#222831]"
           : show == "hide"

@@ -52,7 +52,7 @@ const HeroSection = () => {
       <div className="opacity-layer w-full h-[550px] sm:h-[250px] md:h-[250px] lg:h-[250px]"></div>
 
       <div className="content-wrapper w-full max-w-[1200px] m-auto px-20 z-50">
-        <div className="wrapper">
+        <div className="wrapper mt-12 md:mt-0">
           <div className="heroBannerContent flex flex-col items-center text-white text-center max-w-[800px] m-auto">
             <span className="title text-[50px] font-bold mb-3 md:0 md:text-[90px] font-serif">
               TheatreX

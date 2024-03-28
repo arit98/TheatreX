@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import Img from "./LazyLoadImg/Img";
@@ -7,11 +7,29 @@ import Slider from "react-slick";
 
 const CastSection = ({ data, loading }) => {
   const { url } = useSelector((state) => state.home);
+  const [slidesToShow, setSlidesToShow] = useState(4);
+
+  useEffect(() => {
+    if (data && data.results) {
+      const numVideos = data.results.length;
+      if (numVideos >= 4) {
+        setSlidesToShow(4);
+      } else if (numVideos === 3) {
+        setSlidesToShow(3);
+      } else if (numVideos === 2) {
+        setSlidesToShow(2);
+      } else if (numVideos === 1) {
+        setSlidesToShow(1);
+      } else if (numVideos === 0) {
+        setSlidesToShow(0);
+      }
+    }
+  }, [data]);
 
   const settings = {
     dots: false,
     infinite: false,
-    slidesToShow: 8, // Number of slides to show at once
+    slidesToShow: slidesToShow, // Number of slides to show at once
     slidesToScroll: 6,
     arrows: false,
     responsive: [
