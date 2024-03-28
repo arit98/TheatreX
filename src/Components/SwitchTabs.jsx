@@ -4,10 +4,10 @@ const SwitchTabs = ({ data, onTabChange }) => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [left, setLeft] = useState(0);
 
-  const handleTabClick = (index) => {
+  const handleTabClick = (tab, index) => {
     setSelectedTab(index);
     if (onTabChange) {
-      onTabChange(index);
+      onTabChange(tab, index);
     }
     // bg left or right calc
     const tabWidth = 100 / data?.length;
@@ -23,7 +23,7 @@ const SwitchTabs = ({ data, onTabChange }) => {
             className={`tabItem h-full flex items-center justify-center w-full text-sm relative z-10 cursor-pointer transition-[color ease 0.3s] active:text-white ${
               selectedTab === index ? "text-white font-semibold" : ""
             }`}
-            onClick={() => handleTabClick(index)}
+            onClick={() => handleTabClick(tab,index)}
           >
             {tab}
           </span>
