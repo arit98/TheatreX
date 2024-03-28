@@ -17,6 +17,11 @@ const App = () => {
   const dispatch = useDispatch();
   const { url } = useStateHomeValue();
 
+  useEffect(() => {
+    fetchApi();
+    genersCall();
+  }, []);
+
   const fetchApi = () => {
     fetchData("/configuration").then((res) => {
       // console.log(res);
@@ -41,17 +46,13 @@ const App = () => {
     }
 
     const data = await Promise.all(promises);
-    data.map(({ genres }) => {
+    data?.map(({ genres }) => {
       return genres.map((item) => (allGenres[item.id] = item));
     });
 
     dispatch(getGenres(allGenres))
   };
 
-  useEffect(() => {
-    fetchApi();
-    genersCall();
-  }, []);
   return (
     <AnimatePresence mode="wait">
       <BrowserRouter>

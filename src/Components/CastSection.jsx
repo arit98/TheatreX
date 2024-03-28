@@ -45,7 +45,7 @@ const CastSection = ({ data, loading }) => {
     );
   };
   return (
-    <div className="castSection m-auto max-w-[1200px] w-full md:mt-0 mt-[625px] p-4">
+    <div className="castSection m-auto max-w-[1200px] w-full md:mt-0 mt-[47rem] p-4">
         <div className="sectionHeading text-white text-3xl mb-5">Top Cast</div>
         {!loading ? (
           <Slider {...settings}>

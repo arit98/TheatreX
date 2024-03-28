@@ -9,6 +9,8 @@ const SimilarSection = ({id, mediaType}) => {
     const { data, loading } = useFetch(`/${mediaType}/${id}/similar`);
 
     const title = mediaType === "movie" ? "Similar Movies" : "Similar TV Shows"
+
+    const hasSimilar = data && data?.results && data?.results.length > 0;
   
   return (
     <div className="carouselSection relative mb-[70px]">
@@ -18,7 +20,10 @@ const SimilarSection = ({id, mediaType}) => {
         </span>
       </div>
 
-      <Card data={data?.results} loading={loading} endPoint={mediaType} />
+      <Card data={data?.results} loading={loading} endpoint={mediaType} />
+      {!loading && !hasSimilar && (
+        <p class="text-center text-xl text-red-400">No similarity found.</p>
+      )}
     </div>
   )
 }

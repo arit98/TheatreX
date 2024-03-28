@@ -20,7 +20,7 @@ const TopRated = () => {
         <SwitchTabs data={["Movies", "TV Shows"]} onTabChange={onTabChange} />
       </div>
 
-      <Card data={data?.results} loading={loading} endPoint={endPoint} />
+      <Card data={data?.results} loading={loading} endpoint={endPoint} />
     </div>
   )
 }

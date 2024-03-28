@@ -8,7 +8,7 @@ import SkeletonCard from "./Skeleton/SkeletonCard";
 import Geners from "./Geners";
 import { useNavigate } from "react-router-dom";
 
-const Card = ({ data, loading, endPoint }) => {
+const Card = ({ data, loading, endpoint }) => {
   const { url } = useStateHomeValue();
 
   const navigate = useNavigate()
@@ -57,7 +57,7 @@ const Card = ({ data, loading, endPoint }) => {
               <div
                 key={item.id}
                 className={`flex items-center flex-col gap-2 rounded-lg`}
-                onClick={()=>navigate(`/${item.media_type || endPoint}/${item.id}`)}
+                onClick={()=>navigate(`/${item.media_type || endpoint}/${item.id}`)}
               >
                 <div className="flex items-center justify-center">
                   <img
@@ -84,13 +84,13 @@ const Card = ({ data, loading, endPoint }) => {
                     {(item?.vote_average).toFixed(1)}
                   </div>
                   <div className="absolute md:flex hidden flex-wrap gap-1 bottom-16 w-[210px] m-auto justify-center">
-                  <Geners data={item.genre_ids} />
+                  <Geners data={item?.genre_ids} />
                   </div>
                 </div>
 
                 <div className="pl-1 flex items-center justify-cnetr flex-col text-white">
                   <p className="md:text-2xl text-sm font-semibold text-center text-ellipsis overflow-hidden whitespace-nowrap md:w-[160px] w-20">
-                    {item.title || item.name}
+                    {item?.title || item?.name}
                   </p>
                   <p className="text-red-400 font-medium md:text-md text-sm text-center">
                     {new Date(item.release_date).toLocaleDateString(

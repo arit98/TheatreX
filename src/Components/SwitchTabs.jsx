@@ -10,14 +10,14 @@ const SwitchTabs = ({ data, onTabChange }) => {
       onTabChange(index);
     }
     // bg left or right calc
-    const tabWidth = 100 / data.length;
+    const tabWidth = 100 / data?.length;
     setLeft(index * tabWidth);
   };
 
   return (
     <div className="switchingTabs md:w-[13%] w-1/2 h-[34px] bg-white rounded-2xl p-[2px] relative">
       <div className="tabItems flex items-center h-[30px] relative overflow-hidden">
-        {data.map((tab, index) => (
+        {data?.map((tab, index) => (
           <span
             key={index}
             className={`tabItem h-full flex items-center justify-center w-full text-sm relative z-10 cursor-pointer transition-[color ease 0.3s] active:text-white ${

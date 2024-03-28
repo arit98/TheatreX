@@ -39,7 +39,7 @@ const DetailsBanner = ({ video, crew }) => {
               <div className="backdrop-img w-full h-full absolute top-0 left-0 opacity-50 overflow-hidden">
                 <Img
                   className="object-cover w-full h-full"
-                  src={url.backdrop + data.backdrop_path}
+                  src={url?.backdrop + data?.backdrop_path}
                   alt=""
                 />
               </div>
@@ -47,7 +47,7 @@ const DetailsBanner = ({ video, crew }) => {
               {/* inside */}
               <div className="w-full flex items-center justify-between md:flex-row flex-col m-auto max-w-[1200px] gap-12">
                 <div className="left w-full flex items-center justify-center">
-                  {data.poster_path ? (
+                  {data?.poster_path ? (
                     <img className="md:w-[320px] w-48 h-auto z-50 rounded-xl mt-24 md:mt-0" src={url.backdrop + data.poster_path} />
                   ) : (
                     <Img src={NoPoster} />
@@ -55,13 +55,13 @@ const DetailsBanner = ({ video, crew }) => {
                 </div>
                 <div className="z-20 flex items-start justify-center md:my-20 flex-col md:p-0 p-4">
                   <div className="title text-xl md:text-3xl text-white font-semibold">
-                    {`${data.name || data.title} (${new Date(data?.release_date)
+                    {`${data?.name || data?.title} (${new Date(data?.release_date)
                       .toDateString("en-US", options)
                       .slice(10)
                       .trim()})`}
                   </div>
                   <div className="subtitle md:text-xl text-lg mt-2 text-gray-500">
-                    {data.tagline}
+                    {data?.tagline}
                   </div>
                   <div className="flex items-center justify-start gap-2 mt-4">
                     <Geners data={_genres} />
@@ -88,7 +88,7 @@ const DetailsBanner = ({ video, crew }) => {
                       className="playbtn"
                       onClick={() => {
                         setShow(true);
-                        setVideoId(video.key);
+                        setVideoId(video?.key);
                       }}
                     >
                       <div className="flex items-center gap-2">
@@ -102,32 +102,32 @@ const DetailsBanner = ({ video, crew }) => {
 
                   <div className="overview pb-4">
                     <div className="text-xl font-semibold">Overview</div>
-                    <div className="description">{data.overview}</div>
+                    <div className="description">{data?.overview}</div>
                   </div>
 
                   <div className="info flex items-center justify-between w-full border-y py-4">
-                    {data.status && (
+                    {data?.status && (
                       <div className="infoItem flex items-center justify-center flex-col">
                         <span className="text bold">Status: </span>
-                        <span className="text-red-400">{data.status}</span>
+                        <span className="text-red-400">{data?.status}</span>
                       </div>
                     )}
-                    {data.release_date && (
+                    {data?.release_date && (
                       <div className="infoItem flex items-center justify-center flex-col">
                         <span className="text bold">Release Date: </span>
                         <span className="text-red-400">
-                          {new Date(data.release_date).toDateString(
+                          {new Date(data?.release_date).toDateString(
                             "en-US",
                             options
                           )}
                         </span>
                       </div>
                     )}
-                    {data.runtime && (
+                    {data?.runtime && (
                       <div className="infoItem flex items-center justify-center flex-col">
                         <span className="text bold">Runtime: </span>
                         <span className="text-red-400">
-                          {toHoursAndMinutes(data.runtime)}
+                          {toHoursAndMinutes(data?.runtime)}
                         </span>
                       </div>
                     )}
@@ -170,7 +170,7 @@ const DetailsBanner = ({ video, crew }) => {
                         {data?.created_by?.map((d, i) => (
                           <span key={i}>
                             {d.name}
-                            {data?.created_by.length - 1 !== i && ", "}
+                            {data?.created_by?.length - 1 !== i && ", "}
                           </span>
                         ))}
                       </span>

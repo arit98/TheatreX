@@ -6,6 +6,7 @@ import TrailerModal from "./TrailerModal";
 
 import "../assets/styles/external.css";
 import Slider from "react-slick";
+import SkeletonVideo from "./Skeleton/SkeletonVideo";
 
 const VideosSection = ({ data, loading }) => {
   const [show, setShow] = useState(false);
@@ -17,6 +18,7 @@ const VideosSection = ({ data, loading }) => {
     slidesToShow: 4, // Number of slides to show at once
     slidesToScroll: 4,
     arrows: false,
+    className: "flex items-center",
     responsive: [
       {
         breakpoint: 1024,
@@ -49,43 +51,44 @@ const VideosSection = ({ data, loading }) => {
   };
 
   return (
-    <div className="w-full p-4 relative mb-10">
+    <div className="w-full p-4 relative mb-4">
       <div className="w-full max-w-[1200px] m-auto mb-10">
-        <div className="sectionHeading text-white text-2xl mb-5">
+        <div className="sectionHeading text-white text-xl mb-5">
           Official Videos
         </div>
-        {!loading ? (
+        {!!loading ? (
           <Slider {...settings}>
               {data?.results?.map((video) => (
               <div className="videos flex overflow-x-auto px-20 md:gap-12 gap-16">
                   <div
-                  key={video.id}
+                  key={video?.id}
                   className="videoItem cursor-pointer w-150 md:w-1/4"
                   onClick={() => {
-                    setVideoId(video.key);
+                    setVideoId(video?.key);
                     setShow(true);
                   }}
                 >
-                  <div className="videoThumbnail mb-5 relative -ml-12">
+                  <div className="videoThumbnail mb-5 relative -ml-12 flex">
                     <Img
-                      src={`https://img.youtube.com/vi/${video.key}/mqdefault.jpg`}
+                      src={`https://img.youtube.com/vi/${video?.key}/mqdefault.jpg`}
                       className="w-full rounded-lg"
                     />
                     <IoPlayCircleOutline className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 hover:text-red-400" />
                   </div>
                   <div className="videoTitle text-white text-sm md:text-lg text-center text-ellipsis overflow-hidden whitespace-nowrap md:w-[160px] w-20">
-                    {video.name}
+                    {video?.name}
                   </div>
                 </div>
             </div>
               ))}
           </Slider>
         ) : (
-          <div className="videoSkeleton flex gap-10 overflow-x-auto px-20 md:gap-20">
-            {loadingSkeleton()}
-            {loadingSkeleton()}
-            {loadingSkeleton()}
-            {loadingSkeleton()}
+          <div className="videoSkeleton flex gap-8 overflow-x-auto px-20 md:gap-4">
+            {Array.from({ length: 10 }).map((_, index) => (
+            <div key={index}>
+              <SkeletonVideo />
+            </div>
+          ))}
           </div>
         )}
       </div>

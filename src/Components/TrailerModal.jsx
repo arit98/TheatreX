@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactPlayer from "react-player/youtube";
 import { RxCross2 } from "react-icons/rx";
 
@@ -8,11 +8,13 @@ const TrailerModal = ({ show, setShow, videoId, setVideoId }) => {
         setVideoId(null);
     };
 
-    if(show){
-        document.body.style.overflowY = "hidden"
-    } else{
-        document.body.style.overflowY = "scroll"
-    }
+    useEffect(()=>{
+        if(show){
+            document.body.style.overflowY = "hidden"
+        } else{
+            document.body.style.overflowY = "scroll"
+        }
+    },[show])
     return (
         <div className={`videoPopup ${show ? "flex" : "hidden"} fixed left-0 inset-0 z-[101] flex items-center justify-center w-full`}>
             <div className="absolute inset-0 bg-black bg-opacity-25 backdrop-filter backdrop-blur-lg"></div>
