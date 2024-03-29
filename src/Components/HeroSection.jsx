@@ -25,6 +25,12 @@ const HeroSection = () => {
     }
   };
 
+
+  const searchClickHander = (e) => {
+    e.preventDefault();
+    navigate(`/search/${query}`);
+  }
+
   useEffect(() => {
     const bg =
       url.backdrop +
@@ -68,7 +74,7 @@ const HeroSection = () => {
                 onKeyUp={searchQueryHandler}
                 onChange={(e) => setQuery(e.target.value)}
               />
-              <button onClick={searchQueryHandler} className="w-[100px] h-[50px] bg-gradient-to-r from-[#76ABAE] to-[#78A083] rounded-r-3xl">Search</button>
+              <button onClick={searchClickHander} className="w-[100px] h-[50px] bg-gradient-to-r from-[#76ABAE] to-[#78A083] rounded-r-3xl">Search</button>
             </div>
           </div>
         </div>
