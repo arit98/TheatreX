@@ -47,7 +47,7 @@ const SearchResult = () => {
                 } of '${query}'`}
               </div>
               <InfiniteScroll
-                className="flex items-center justify-center flex-wrap mb-8 gap-x-4"
+                className="content flex flex-wrap items-center justify-center gap-6 mb-10 md:gap-8 m-auto"
                 dataLength={data?.results?.length || []}
                 next={nextPageData}
                 hasMore={pageCount <= data?.total_pages}

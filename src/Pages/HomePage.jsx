@@ -11,7 +11,7 @@ import "../assets/styles/pendulum.css"
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="overflow-y-scroll">
       <img className="absolute w-full" src={Web} alt="" />
         <img
           className="md:flex hidden pendulum drop-shadow-md absolute right-0 bg-transparent md:h-[50%] h-[25%] z-50"

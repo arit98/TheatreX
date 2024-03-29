@@ -24,7 +24,7 @@ const ExploreCard = ({ data, fromSearch, mediaType }) => {
     >
       <div className="flex items-center justify-center flex-wrap">
         <img
-          className="p-1 w-full md:h-[311px] h-[126px] rounded-2xl"
+          className="w-full md:h-[311px] h-[180px] rounded-2xl"
           src={posterUrl}
           alt=""
         />

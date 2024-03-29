@@ -4,8 +4,6 @@ import useFetch from "../hooks/useFetch";
 import { fetchData } from "../services/api";
 import Select from "react-select";
 import InfiniteScroll from "react-infinite-scroll-component";
-import SearchCard from "../Components/SearchCard";
-import Card from "../Components/Card";
 import ExploreCard from "../Components/ExploreCard";
 import SkeletonCard from "../Components/Skeleton/SkeletonCard";
 
@@ -120,7 +118,7 @@ const ExplorePage = () => {
   };
 
   return (
-    <div className="explorePage min-h-screen pt-16 w-full max-w-[1200px] m-auto">
+    <div className="explorePage min-h-screen pt-16 p-4 w-full max-w-[1200px] m-auto">
       <div className="pageHeader flex flex-col md:flex-row justify-between mb-6">
         <div className="pageTitle text-white text-lg mb-4 md:mb-0">
           {mediaType === "tv" ? "Explore TV Shows" : "Explore Movies"}
@@ -177,7 +175,7 @@ const ExplorePage = () => {
         <>
           {data?.results?.length > 0 ? (
             <InfiniteScroll
-              className="content flex flex-wrap gap-4 mb-10 md:gap-8"
+              className="content flex flex-wrap items-center justify-center gap-6 mb-10 md:gap-8 m-auto"
               dataLength={data?.results?.length || []}
               next={fetchNextPageData}
               hasMore={pageNum <= data?.total_pages}
